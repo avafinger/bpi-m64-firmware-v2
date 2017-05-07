@@ -100,7 +100,7 @@ Requirements
 
     b. Rebuild boot and rootfs and check MD5 (must match)
 
-            cat rootfs_m64_rc6.gz.* > rootfs_m64_rc6.tar.gz
+            cat rootfs_m64_rc6.tar.gz.* > rootfs_m64_rc6.tar.gz
             md5sum rootfs_m64_rc6.tar.gz
             4a7d0075c547026135f895bbccf6d949  rootfs_m64_rc6.tar.gz
 
