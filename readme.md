@@ -62,11 +62,11 @@ Before you start downloading and flashing you should pay attention to this
 LCD 7" support
 --------------
 
-- After you create the SD Card with the OS image overwrite a64-2GB.dtb with a64-2GB_LCD7.dtb
+- After you create the SD Card with the OS image overwrite a64-2GB.dtb with a64-2GB_LCD7-v2.dtb
 
 
 		cd /media/ubuntu/boot/a64
-		cp -avf a64-2GB_LCD7.dtb a64-2GB.dtb
+		cp -avf a64-2GB_LCD7-v2.dtb a64-2GB.dtb
 
 
 Installation
@@ -484,3 +484,4 @@ History Log:
 ===========
 * initial commit (readme file)
 * Add support for LCD 7" and Touch
+* Alternative LCD7 pwm
