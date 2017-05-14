@@ -67,6 +67,7 @@ LCD 7" support
 
 		cd /media/ubuntu/boot/a64
 		cp -avf a64-2GB_LCD7-v2.dtb a64-2GB.dtb
+		cp -avf a64-2GB_LCD7-v3.dtb a64-2GB.dtb (Touch enabled in this version)
 
 
 Installation
@@ -485,3 +486,4 @@ History Log:
 * initial commit (readme file)
 * Add support for LCD 7" and Touch
 * Alternative LCD7 pwm
+* Tocuh Enabled
