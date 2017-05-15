@@ -68,6 +68,7 @@ LCD 7" support
 		cd /media/ubuntu/boot/a64
 		cp -avf a64-2GB_LCD7-v2.dtb a64-2GB.dtb
 		cp -avf a64-2GB_LCD7-v3.dtb a64-2GB.dtb (Touch enabled in this version)
+		cp -avf a64-2GB_LCD7-v4.dtb a64-2GB.dtb (PWM & Touch - FIXED)
 
 
 Installation
