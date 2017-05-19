@@ -157,15 +157,15 @@ Requirements
             git clone https://github.com/avafinger/bpi-m64-firmware-v2
             cd bpi-m64-firmware-v2
 
-3.  Flash the OS Image to eMMC
+    b. Flash the OS Image to eMMC
 
-    a.  **Start flashing... (eMMC)**
+    **Start flashing... (eMMC)**
 
             sudo chmod +x *.sh
             sudo ./format_emmc.sh
             sudo ./flash_emmc.sh
 
-    If everything is OK you can now shutdown and boot up without the SD card.
+    If everything is OK you can now shutdown and boot up **without the SD card**.
 
 
 
@@ -222,9 +222,9 @@ see if all modules has been loaded:
 
 b.  **Add TSLIB support or evdev Support**
 
-In order to X11 accepts touch screen you will need **TSLIB** support or **EVDEV** support.
-You can follow this for **TSLIB**: https://github.com/avafinger/pine64-touchscreen
-Change/Add the file **xorg.conf** for something like this:
+   In order to X11 accepts touch screen you will need **TSLIB** support or **EVDEV** support.
+   You can follow this for **TSLIB**: https://github.com/avafinger/pine64-touchscreen
+   Change/Add the file **xorg.conf** for something like this:
 
 
 
@@ -241,7 +241,7 @@ Change/Add the file **xorg.conf** for something like this:
 
 
 
-or use evdev
+    or use evdev
 
 
 Initial setup
