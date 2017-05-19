@@ -24,7 +24,7 @@ This is a preliminary LXDE OS image for the Banana Pi M64 with fully working
 - GbE (Gigabit ethernet)
 - LEDs (Blue and Green)
 - Support for HW decoding/encoding (cedrus H264) - https://github.com/avafinger/cedrusH264_vdpau_A64
-- LCD 7" with Touch Screen (Not tested!)
+- LCD 7" with Touch Screen (Tested and works)
 
 *Note*
 - Don't power the board with microUSB or a PSU with less than 2.5V, Wifi+HDMI+LCD+eMMC draws a lot of power
@@ -59,17 +59,22 @@ Before you start downloading and flashing you should pay attention to this
 - Make sure HDMI is connected to the board very tight or you may experience some flickering or the image will not appear.
 - Initial setup is for HDMI 1920x1080 (1080p@60), if you need support for the 7" LCD change a64-2GB.dtb with the correspondig a64-2GB_LCD7.dtb
 
-LCD 7" support
+7" LCD support
 --------------
 
-- After you create the SD Card with the OS image overwrite a64-2GB.dtb with a64-2GB_LCD7-v2.dtb
+LCD Panel (tested by someone else)
+![lcd](https://github.com/avafinger/bpi-m64-firmware-v2/raw/master/img/bpi-m64-lcd1.jpg)
+
+![lcd wiring](https://github.com/avafinger/bpi-m64-firmware-v2/raw/master/img/bpi-m64-lcd2.jpg)
+
+
+- After you create the SD Card with the OS image overwrite a64-2GB.dtb with a64-2GB_LCD7-v4.dtb
 
 
 		cd /media/ubuntu/boot/a64
-		cp -avf a64-2GB_LCD7-v2.dtb a64-2GB.dtb
-		cp -avf a64-2GB_LCD7-v3.dtb a64-2GB.dtb (Touch enabled in this version)
 		cp -avf a64-2GB_LCD7-v4.dtb a64-2GB.dtb (PWM & Touch - FIXED)
 
+for the Tocuh, see instructions below.
 
 Installation
 ------------
@@ -164,25 +169,24 @@ Requirements
 
 
 
-7" LCD with Touch Screen support (not tested)
+7" LCD with Touch Screen support (tested)
 -------------------------------------
 
 This is the instructions to work with touch on the LCD 7" (S070WV20_MIPI_RGB).
 The file a64-2GB_LCD7.dtb - DTB (Device Tree Blob) has supportfor LCD and Touch Screen.
 
-    a. Add **FT5X_TS** touch manually to **/etc/modules**
+a. Add **FT5X_TS** touch manually to **/etc/modules**
 
 
 		sudo modprobe ft5x_ts
-
-        or
-
-        	add ft5x_ts to /etc/modules file
+        	or
+        	add **ft5x_ts** to **/etc/modules** file
 
 
 
-	see if all modules has been loaded:
-	**lsmod**
+see if all modules has been loaded:
+
+		**lsmod**
 
 
 		Module                  Size  Used by
@@ -216,16 +220,16 @@ The file a64-2GB_LCD7.dtb - DTB (Device Tree Blob) has supportfor LCD and Touch 
 
 
 
-    b.  **Add TSLIB support or evdev Support**
+b.  **Add TSLIB support or evdev Support**
 
-    In order to X11 accepts touch screen you will need TSLIB support or EVDEV support.
-    You can follow this for TSLIB: https://github.com/avafinger/pine64-touchscreen
-    Change the file xorg.conf for something like this:
+In order to X11 accepts touch screen you will need **TSLIB** support or **EVDEV** support.
+You can follow this for **TSLIB**: https://github.com/avafinger/pine64-touchscreen
+Change/Add the file **xorg.conf** for something like this:
 
 
 
 		# Bpi M64 TS - no need for calibration with TSLIB
-		# no need for uvdev
+		# no need for uvdev if using TSLIB
 		Section "InputClass"
 			Identifier "M64-Touchscreen"
 		#	MatchIsTouchscreen "on"
@@ -237,7 +241,8 @@ The file a64-2GB_LCD7.dtb - DTB (Device Tree Blob) has supportfor LCD and Touch 
 
 
 
-    or use evdev
+or use evdev
+
 
 Initial setup
 -------------
@@ -249,7 +254,6 @@ Initial setup
 
 3.  Output mode is HDMI 1080p@60 , to change it to 720p you need to generate a new DTB
     and set it to 720p or any other HDMI mode inside the DTB.
-
 
 
 
