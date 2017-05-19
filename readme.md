@@ -57,7 +57,7 @@ Before you start downloading and flashing you should pay attention to this
 - Get a good PSU with at least 2.5A (be on the safe side).
 - Make sure you have HDMI (don't use HDMI to DVI if you can).
 - Make sure HDMI is connected to the board very tight or you may experience some flickering or the image will not appear.
-- Initial setup is for HDMI 1920x1080 (1080p@60), if you need support for the 7" LCD change a64-2GB.dtb with the correspondig a64-2GB_LCD7.dtb
+- Initial setup is for HDMI 1920x1080 (1080p@60), if you need support for the 7" LCD change a64-2GB.dtb with the correspondig a64-2GB_LCD7-v4.dtb
 
 7" LCD support
 --------------
@@ -70,11 +70,16 @@ LCD Panel (tested by someone else)
 
 - After you create the SD Card with the OS image overwrite a64-2GB.dtb with a64-2GB_LCD7-v4.dtb
 
+	1. Make a backup of curent a64-2GB.dtb
+		cd /media/ubuntu/boot/a64 (or you current user name)
+		cp -vf a64-2GB.dtb a64-2GB.dtb_HDMI_1080P
 
-		cd /media/ubuntu/boot/a64
-		cp -avf a64-2GB_LCD7-v4.dtb a64-2GB.dtb (PWM & Touch - FIXED)
+	2. Overwrite with the a64-2GB_LCD7-v4.dtb (PWM & Touch - FIXED)
+		cp -avf ./from_directory_you_cloned/a64-2GB_LCD7-v4.dtb a64-2GB.dtb 
 
-for the Tocuh, see instructions below.
+
+for the Touch, see instructions below.
+
 
 Installation
 ------------
@@ -173,7 +178,7 @@ Requirements
 -------------------------------------
 
 This is the instructions to work with touch on the LCD 7" (S070WV20_MIPI_RGB).
-The file a64-2GB_LCD7.dtb - DTB (Device Tree Blob) has supportfor LCD and Touch Screen.
+The file a64-2GB_LCD7-v4.dtb - DTB (Device Tree Blob) has supportfor LCD and Touch Screen.
 
 a. Add **FT5X_TS** touch manually to **/etc/modules**
 
