@@ -70,13 +70,17 @@ LCD Panel (tested by someone else)
 
 - After you create the SD Card with the OS image overwrite a64-2GB.dtb with a64-2GB_LCD7-v4.dtb
 
-	1. Make a backup of curent a64-2GB.dtb
+       1. Make a backup of curent a64-2GB.dtb
 
+		
 		cd /media/ubuntu/boot/a64 (or you current user name)
+
 		cp -vf a64-2GB.dtb a64-2GB.dtb_HDMI_1080P
 
-	2. Overwrite with the a64-2GB_LCD7-v4.dtb (PWM & Touch - FIXED)
 
+       2. Overwrite with the a64-2GB_LCD7-v4.dtb (PWM & Touch - FIXED)
+
+		
 		cp -avf ./from_directory_you_cloned/a64-2GB_LCD7-v4.dtb a64-2GB.dtb 
 
 
