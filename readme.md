@@ -24,7 +24,7 @@ This is a preliminary LXDE OS image for the Banana Pi M64 with fully working
 - GbE (Gigabit ethernet)
 - LEDs (Blue and Green)
 - Support for HW decoding/encoding (cedrus H264) - https://github.com/avafinger/cedrusH264_vdpau_A64
-- LCD 7" with Touch Screen (Tested and works)
+- LCD 7" with Touch Screen (LCD Tested and works, Touch needs to be verified)
 
 *Note*
 - Don't power the board with microUSB or a PSU with less than 2.5V, Wifi+HDMI+LCD+eMMC draws a lot of power
@@ -169,7 +169,7 @@ Requirements
 
 
 
-7" LCD with Touch Screen support (tested)
+7" LCD with Touch Screen support (Needs to be verified)
 -------------------------------------
 
 This is the instructions to work with touch on the LCD 7" (S070WV20_MIPI_RGB).
@@ -180,13 +180,13 @@ a. Add **FT5X_TS** touch manually to **/etc/modules**
 
 		sudo modprobe ft5x_ts
         	or
-        	add **ft5x_ts** to **/etc/modules** file
+        	add ft5x_ts to /etc/modules file
 
 
 
 see if all modules has been loaded:
 
-		**lsmod**
+		type: lsmod
 
 
 		Module                  Size  Used by
