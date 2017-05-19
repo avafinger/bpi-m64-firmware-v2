@@ -222,9 +222,11 @@ see if all modules has been loaded:
 
 b.  **Add TSLIB support or evdev Support**
 
-   In order to X11 accepts touch screen you will need **TSLIB** support or **EVDEV** support.
-   You can follow this for **TSLIB**: https://github.com/avafinger/pine64-touchscreen
-   Change/Add the file **xorg.conf** for something like this:
+In order to X11 accepts touch screen you will need **TSLIB** support or **EVDEV** support.
+
+You can follow this for **TSLIB**: https://github.com/avafinger/pine64-touchscreen
+
+Change/Add the file **xorg.conf** for something like this:
 
 
 
@@ -241,7 +243,7 @@ b.  **Add TSLIB support or evdev Support**
 
 
 
-    or use evdev
+or use evdev
 
 
 Initial setup
