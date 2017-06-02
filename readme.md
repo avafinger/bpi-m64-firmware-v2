@@ -70,22 +70,36 @@ Note: **[USER]** is current login user on modern distro, change [USER] according
 
   1. Assembly the kernel modules
 
+
 	cat kernel_m64_LCD5.tar.gz.* > kernel_m64_LCD5.tar.gz
 
+
   2. Check if MD5 match this
+
 
 	md5sum kernel_m64_LCD5.tar.gz
 	c2594347f3bc9837fd4d8d5725ca8a55  kernel_m64_LCD5.tar.gz
 
+
   3. Copy kernel Image and modules (**make backup of current kernel Image and modules**)
+
 
 	make backup.... Image and /lib/modules/
 	cp -fv a64-2GB_LCD5.dtb /media/[USER]/boot/a64/a64-2GB.dtb
 	sudo tar -xvpzf kernel_m64_LCD5.tar.gz -C /media/[USER]/rootfs/lib/modules --numeric-ow	
 
+
   4. U-Boot with 5" LCD
 
+
 	dd if=./ub-sdcard-lcd5.bin conv=notrunc bs=1k seek=19096 of=/dev/sdX (X is device leeter)
+
+
+  5. Update DTB with a64-2GB_LCD5.dtb	
+
+
+  	cp -vf a64-2GB_LCD5.dtb /media/[USER]/boot/a64/a64-2GB.dtb
+
 
 
 7" LCD support
