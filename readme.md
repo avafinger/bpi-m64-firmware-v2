@@ -14,7 +14,7 @@ This is a very LEAN and MEAN OS image to play and learn how to extend it.
 This is a preliminary LXDE OS image for the Banana Pi M64 with fully working
 ----------------------------------------------------------------------------
 
-- Latest kernel 3.10.105 with
+- Latest kernel 3.10.105 built with gcc 6.3
 - eMMC
 - Wifi
 - BT (bluetooth)
@@ -25,6 +25,7 @@ This is a preliminary LXDE OS image for the Banana Pi M64 with fully working
 - LEDs (Blue and Green)
 - Support for HW decoding/encoding (cedrus H264) - https://github.com/avafinger/cedrusH264_vdpau_A64
 - LCD 7" with Touch Screen (LCD Tested and works, Touch needs to be verified)
+- LCD 5" (Experimental)
 
 *Note*
 - Don't power the board with microUSB or a PSU with less than 2.5V, Wifi+HDMI+LCD+eMMC draws a lot of power
@@ -58,6 +59,30 @@ Before you start downloading and flashing you should pay attention to this
 - Make sure you have HDMI (don't use HDMI to DVI if you can).
 - Make sure HDMI is connected to the board very tight or you may experience some flickering or the image will not appear.
 - Initial setup is for HDMI 1920x1080 (1080p@60), if you need support for the 7" LCD change a64-2GB.dtb with the correspondig a64-2GB_LCD7-v4.dtb
+
+
+5" LCD support (Experimental)
+--------------
+
+Added driver and DTB for the 5" LCD
+
+Note: **[USER]** is current login user on modern distro, change [USER] accordingly if needed.
+
+  1. Assembly the kernel modules
+
+	cat kernel_m64_LCD5.tar.gz.* > kernel_m64_LCD5.tar.gz
+
+  2. Check if MD5 match this
+
+	 md5sum kernel_m64_LCD5.tar.gz
+	c2594347f3bc9837fd4d8d5725ca8a55  kernel_m64_LCD5.tar.gz
+
+  3. Copy kernel Image and modules (**make backup of current kernel Image and modules**)
+
+	make backup.... Image and /lib/modules/
+	cp -fv a64-2GB_LCD5.dtb /media/[USER]/boot/a64/a64-2GB.dtb
+	sudo tar -xvpzf kernel_m64_LCD5.tar.gz -C /media/[USER]/rootfs/lib/modules --numeric-ow	
+
 
 7" LCD support
 --------------
@@ -504,4 +529,5 @@ History Log:
 * initial commit (readme file)
 * Add support for LCD 7" and Touch
 * Alternative LCD7 pwm
-* Tocuh Enabled
+* Touch Enabled
+* Add support for 5"
