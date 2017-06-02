@@ -85,7 +85,7 @@ Note: **[USER]** is current login user on modern distro, change [USER] according
 
 
 	make backup.... Image and /lib/modules/
-	cp -fv a64-2GB_LCD5.dtb /media/[USER]/boot/a64/a64-2GB.dtb
+	cp -fv Image_LCD5 /media/[USER]/boot/a64/Image
 	sudo tar -xvpzf kernel_m64_LCD5.tar.gz -C /media/[USER]/rootfs/lib/modules --numeric-ow	
 
 
