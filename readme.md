@@ -84,12 +84,14 @@ Note: **[USER]** is current login user on modern distro, change [USER] according
   3. Copy kernel Image and modules (**make backup of current kernel Image and modules**)
 
 
-	make backup.... Image and /lib/modules/
+  make backup.... Image and /lib/modules/
+
 	sudo mv -fv /media/[USER]/rootfs/lib/modules/3.10.105 /media/[USER]/rootfs/lib/modules/3.10.105_OK2
 	mv -fv /media/[USER]/boot/a64/Image /media/[USER]/boot/a64/Image_OK2
 
   
-
+  
+  
 	cp -fv Image_LCD5 /media/[USER]/boot/a64/Image
 	sudo tar -xvpzf kernel_m64_LCD5.tar.gz -C /media/[USER]/rootfs/lib/modules --numeric-ow	
 
