@@ -44,7 +44,7 @@ sync
 
 set -e
 pt_info "Formating sd card $out ..."
-
+part="p"
 part_position=20480   # KiB
 boot_size=80          # MiB
 # Create beginning of disk
@@ -52,7 +52,7 @@ pt_info "Zeroing mbr on $out ..."
 dd if=/dev/zero bs=1M count=$((part_position/1024)) of="$out"
 sync
 
-pt_info "Creating partition on $out ..."
+#pt_info "Creating partition on $out ..."
 # Add partition table
 cat <<EOF | fdisk "$out"
 o
@@ -61,6 +61,7 @@ p
 1
 $((part_position*2))
 +${boot_size}M
+
 t
 c
 n
@@ -81,14 +82,13 @@ sync
 
 pt_warn "Formating $out ..."
 # Create boot file system (VFAT)
-dd if=/dev/zero bs=1M count=${boot_size} of=${out}1
-mkfs.vfat -n boot -I ${out}1
+dd if=/dev/zero bs=1M count=${boot_size} of=${out}${part}1
+mkfs.vfat -n boot -I ${out}${part}1
 
 # Create ext4 file system for rootfs
-mkfs.ext4 -F -b 4096 -E stride=2,stripe-width=1024 -L rootfs ${out}2
+mkfs.ext4 -F -b 4096 -E stride=2,stripe-width=1024 -L rootfs ${out}${part}2
 sync
-sudo tune2fs -O ^has_journal ${out}2
+sudo tune2fs -O ^has_journal ${out}${part}2
 sync
 
 pt_ok "Done - Geometry created and sd card '$out' formatted, now flash the image with ./flash_sd.sh"
-
